@@ -2,6 +2,11 @@
 
 Binary classification of Instagram posts as sponsored (1) or not (0), using a heterogeneous graph neural network with multimodal encoders. Based on the SPoD paper (Kim et al., WSDM 2021) with modernised components.
 
+The core differences are:
+* using a more modern multilingual language model for creating text embeddings
+* using a clip model for image embeddings - the clip model is trained on paired image and text data therefore the embeddings produced may be more correlated with any potential text data from other parts of the graph.
+* using a specific heterogenous graph transformer implementation over a regular graph convolutional neural network
+
 ## Architecture
 
 Three encoders produce per-post representations which are fused via attention:
