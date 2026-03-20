@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ig-sponsorship-detection"
+version = "0.1.0"
+description = "Sponsored Instagram post detection via heterogeneous graphs (SPoD)"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.3",
+    "torch-geometric>=2.5",
+    "transformers>=4.40",
+    "open-clip-torch>=2.24",
+    "scikit-learn>=1.4",
+    "scipy>=1.13",
+    "Pillow>=10.0",
+    "tqdm>=4.66",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["jupyter", "matplotlib", "seaborn", "ipywidgets"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+# NOTE: torch-scatter and torch-sparse must be installed separately:
+# pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-{TORCH}+{CUDA}.html
+# Replace {TORCH} with your torch version (e.g. 2.3.0) and {CUDA} with your cuda version (e.g. cu121)
